@@ -116,12 +116,6 @@ def main():
 		threads = [thread for thread in threading.enumerate() if thread.is_alive()]
 	while not queued.empty():
 		Database('admin').entry('submissions',list(queued.get()))
-	results = Database('admin').query('submissions', fetchall=True)
-	for line in results:
-		try:
-			print(line)
-		except:
-			print(line[0])
 
 if __name__ == '__main__':
 	#call main function
